@@ -1624,8 +1624,14 @@ func (h *jobsInsertHandler) addQueryResultToDynamicDestinationTable(ctx context.
 	if err := r.server.contentRepo.AddTableData(ctx, tx, projectID, datasetID, tableDef); err != nil {
 		return fmt.Errorf("failed to add table data: %w", err)
 	}
+	r.job.Configuration.Query.DestinationTable = &bigqueryv2.TableReference{
+		DatasetId: datasetID,
+		ProjectId: projectID,
+		TableId:   tableID,
+	}
 	return nil
 }
+
 
 func (h *jobsListHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
