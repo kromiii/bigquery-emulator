@@ -4,6 +4,11 @@ on:
     tags:
       - v*
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version'
+        required: true
+        default: 'v0.0.0'
 env:
   REGISTRY: ghcr.io
 
