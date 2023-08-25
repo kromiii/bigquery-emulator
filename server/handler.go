@@ -1632,7 +1632,6 @@ func (h *jobsInsertHandler) addQueryResultToDynamicDestinationTable(ctx context.
 	return nil
 }
 
-
 func (h *jobsListHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 	server := serverFromContext(ctx)
