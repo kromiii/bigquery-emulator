@@ -1588,7 +1588,7 @@ func deleteTableMetadata(ctx context.Context, server *Server, spec *zetasqlite.T
 func (h *jobsInsertHandler) addQueryResultToDynamicDestinationTable(ctx context.Context, tx *connection.Tx, r *jobsInsertRequest, response *internaltypes.QueryResponse) error {
 	projectID := r.project.ID
 	jobID := r.job.JobReference.JobId
-	datasetID := "ds_" + jobID
+	datasetID := jobID
 	tableID := jobID
 
 	tableDef, err := h.tableDefFromQueryResponse(tableID, response)
